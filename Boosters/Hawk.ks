@@ -19,7 +19,7 @@ local box_azi is wndw:addhlayout().
   	set azivalue:style:height to 18.
 local box_pitch is wndw:addhlayout().
   	local pitch_label is box_pitch:addlabel("Start Pitch").
-  	local pitchvalue is box_pitch:ADDTEXTFIELD("87").
+  	local pitchvalue is box_pitch:ADDTEXTFIELD("87").//luna2 86.5
   	set pitchvalue:style:width to 100.
   	set pitchvalue:style:height to 18.
 local box_ap is wndw:addhlayout().
@@ -85,7 +85,7 @@ if runMode = 0.1 {
 if runMode = 1.1 { 
 	Print "Run mode is:" + runMode.
 	Wait until Stage:Ready.
-	ff_GravityTurnAoA(gv_intAzimith, "RCS", 0.0, 0.995, 1).
+	ff_GravityTurnAoA(gv_intAzimith, "RCS", 0.0, 0.995, 0).
 	set runMode to 2.1.
 	Print "MECO".
 }	
@@ -99,10 +99,10 @@ if runMode = 2.1 {
 		gv_ap*1000,
 		gv_intAzimith,
 		0,//Target true anomoly
-		1, //shutdown stability lock parameters time.
+		3, //HSL = shutdown stability lock parameters time.
 		//Stage 3
 		150, // stage three estimated burn length
-		118, //estimated mass flow(kg/s)
+		119, //estimated mass flow(kg/s)
 		24500, //estimated start mass in kg
 		3067, //estimated exhuast vel (thrust(N)/massflow(kg/s))
 		150, ////(S-Ve/avg_acc(in m/s)) estimated effective time to burn all propellant.S-Ve = ISP*g0
@@ -110,7 +110,7 @@ if runMode = 2.1 {
 		0,1,1,1,1,//T2 values
 		0,0,1,1,//T1 values
 
-		5, /// overburns by about 5m/s of average due to seperation thrusters
+		2, /// overburns by about 2m/s of average due to shutdown
 		{},
 		{	
 			if (SHIP:Q < 0.005) and (SteerLex["fairlock"] = false) {

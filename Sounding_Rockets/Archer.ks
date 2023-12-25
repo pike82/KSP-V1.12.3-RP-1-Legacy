@@ -65,12 +65,13 @@ if runMode = 0.1 {
 if runMode = 1.1 { 
 	Print "Run mode is:" + runMode.
 	Wait until Stage:Ready.
-	ff_partslist("boostTank"). 
+	ff_partslist("BoostTank"). 
 	ff_GravityTurnAoA(gv_intAzimith, "Hot", 1.75, 0.995).
 	set runMode to 2.1.
 }	
 
 if runMode = 2.1 { 
+	wait 1.
 	Print "Run mode is:" + runMode.
 	ff_partslist("Tank2").
 	ff_GravityTurnAoA(gv_intAzimith, "Hot", 1.75, 0.95).
@@ -78,6 +79,7 @@ if runMode = 2.1 {
 }	
 
 if runMode = 3.1 { 
+	wait 1.
 	Print "Run mode is:" + runMode.
 	Until ((ship:verticalspeed < 0) and (ship:altitude > 200)){
 		wait 2.	

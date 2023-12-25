@@ -19,7 +19,7 @@ local box_azi is wndw:addhlayout().
   	set azivalue:style:height to 18.
 local box_pitch is wndw:addhlayout().
   	local pitch_label is box_pitch:addlabel("Start Pitch").
-  	local pitchvalue is box_pitch:ADDTEXTFIELD("87").
+  	local pitchvalue is box_pitch:ADDTEXTFIELD("87").//bio reentry speed 87, bio LEO 86.5, comms 88.25 :50 , Nav 88 : 35
   	set pitchvalue:style:width to 100.
   	set pitchvalue:style:height to 18.
 local box_pitch is wndw:addhlayout().
@@ -83,14 +83,21 @@ if runMode = 1.1 {
 
 if runMode = 2.1 { 
 	Print "Run mode is:" + runMode.
-	ff_coastT(gv_apwait, gv_intAzimith).
+	Print steeringmanager:maxstoppingtime.
+	Print steeringmanager:TORQUEEPSILONMAX.
+	set steeringmanager:TORQUEEPSILONMAX to  0.04. //reduce rcs
+	set steeringmanager:TORQUEEPSILONMIN to  0.005. //reduce rcs
+	set new_Az to Compass_for_vec(ship, ship:velocity:surface).
+	ff_coastT(gv_apwait, new_Az).
+	set steeringmanager:TORQUEEPSILONMAX to  0.001.//set rcs to default
+	set steeringmanager:TORQUEEPSILONMIN to  0.0002. //set rcs to default
  	set runMode to 3.1.
 }	
 
 if runMode = 3.1 { 
 	Print "Run mode is:" + runMode.
 	ff_COMMS().
-	ff_SpinStab(gv_intAzimith, 0, 10).
+	ff_SpinStab(new_Az, 0, 10).
 	wait 30.
 	set runMode to 4.1.
 }
@@ -112,4 +119,36 @@ if runMode = 5.1 {
 		Wait 0.05.
 	}
 	Print "SECO".
+}
+
+function compass_for_vec {
+
+  parameter input_vessel.
+    // i.e. ship: needed to get position around globe.
+
+  parameter input_vector.
+      // i.e. ship:velocity:surface (for prograde) 
+      // or ship:facing:forevector (for facing vector rather  than vel vector).
+
+  // What direction is east right now, in unit vector terms (we really should provide this in kOS):
+  set east_unit_vec to  vcrs(input_vessel:up:vector, input_vessel:north:vector).
+
+  // east component of vector:
+  set east_vel to vdot(input_vector, east_unit_vec). 
+
+  // north component of vector:
+  set north_vel to vdot(input_vector, input_vessel:north:vector).
+
+  // inverse trig to take north and east components and make an angle:
+  set compass to arctan2(east_vel, north_vel).
+
+  // Note, compass is now in the range -180 to +180 (i.e. a heading of 270 is
+  // expressed as -(90) instead.  This is entirely acceptable mathematically,
+  // but if you want a number that looks like the navball compass, from 0 to 359.99,
+  // you can do this to it:
+  if compass < 0 {
+    set compass to compass + 360.
+  }
+
+  return compass.
 }

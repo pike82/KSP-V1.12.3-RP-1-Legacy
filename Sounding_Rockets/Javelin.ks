@@ -72,14 +72,14 @@ if runMode = 1.1 {
 
 if runMode = 2.1 { 
 	Print "Run mode is:" + runMode.
-	ff_coastT(125, gv_intAzimith).
+	ff_coastT(145, gv_intAzimith).
  	set runMode to 3.1.
 }	
 
 if runMode = 3.1 { 
 	Print "Run mode is:" + runMode.
 	ff_SpinStab(gv_intAzimith, 0, 10).
-	wait 20.
+	wait 60.
 	set runMode to 4.1.
 }
 

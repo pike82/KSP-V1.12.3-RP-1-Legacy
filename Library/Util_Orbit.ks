@@ -13,6 +13,8 @@
 		// ff_Find_AN_INFO,
 		// ff_Find_AN_UT,
 		// ff_TAr,
+		// ff_OrbLAN,
+		// ff_GetLNG,
 		// ff_timeFromTA,  
 		// ff_TAtimeFromPE,
 		// ff_quadraticMinus,
@@ -57,6 +59,40 @@ function ff_TAr {
 	//Print "TAr:" + TA.
 	return TA. // Returns the True Anomoly at specified radius in degress
 
+}
+///////////////////////////////////////////////////////////////////////////////////	
+function ff_OrbLAN {			
+	parameter ves is ship.
+
+	local spLAN is ves:orbit:lan.
+	local bRot is ves:body:rotationangle.
+	local bLAN is spLAN - bRot.
+	
+	return mod(bLAN, 360).
+}
+///////////////////////////////////////////////////////////////////////////////////	
+function ff_GetLNG {			// returns LNG where orbit intersects with latitude
+	parameter lat, tgt is ship.
+	
+	if hasTarget { set tgt to target. }
+	
+	local tInc is tgt:orbit:inclination.
+	local tLAN is OrbLAN(tgt).
+	
+	if (tInc < abs(lat)) {
+		if (lat > 0) { set lat to tInc. }
+		else { set lat to -tInc. }
+	}
+	
+	local lng0 is arcsin(tan(lat) / tan(tInc)).
+	local lngAN is lng0 + tLAN.
+	local lngDN is (tLAN - 180) - lng0.
+	
+	if (lngAN < 0) {
+		set lngDN to lngDN + 360.
+	}
+	
+	return list(lngAN, lngDN).
 }
 ///////////////////////////////////////////////////////////////////////////////////	
 function ff_timeFromTA {

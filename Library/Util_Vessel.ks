@@ -129,7 +129,7 @@ function ff_partslist{
 	Parameter name is "".
 	Global RSS_partlist is list().
 	Global partlist is List().
-	//LIST Parts IN partList. 
+	LIST Parts IN partList. //needed to be run for some reason on some occasions otherwise wont work
 	FOR Part IN partList {
 		IF Part:tag = name { 
 			RSS_partlist:add(Part).

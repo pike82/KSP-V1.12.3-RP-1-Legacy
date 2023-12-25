@@ -298,7 +298,7 @@ Function ff_BestLand{
 
 Function ff_ESTProfileLand{ 
 	//this estimate the burn time to no horizontal velocity based on a profile approach
-	Parameter LandTime, EndHorzVel is 0. // throttle start time is the time it take the trottle to get up to full power TODO: have this also take into account the rotation of the body so it can target a specific landing spot.
+	Parameter LandTime, EndHorzVel is 0. // throttle start time is the time it take the throttle to get up to full power TODO: have this also take into account the rotation of the body so it can target a specific landing spot.
 	Print "Landing Burn Start Time: " + LandTime.
 	Wait 5.
 	Set PEVec to velocityat(Ship, LandTime):Surface.

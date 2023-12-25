@@ -21,10 +21,11 @@
 ////////////////////////////////////////////////////////////////
 
 	Function ff_DO_Burn{
-	Parameter TarHeight is 30000.
+	Parameter TarHeight is 30000, rotatetime is 5.
+		lock steering to ship:retrograde.
+		wait rotatetime.
 		until Ship:Periapsis < TarHeight {
-			lock steering to ship:retrograde.
-			Lock Throttle to gl_TVALMax().
+			Lock Throttle to 1.
 			wait 0.001.
 		}
 	Lock Throttle to 0.0.

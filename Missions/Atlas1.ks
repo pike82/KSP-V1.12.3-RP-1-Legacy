@@ -85,6 +85,7 @@ until holdload = true {
 	for Processor in PROCESSOR_List {
 		if Processor:TAG = boosterCPU{ //checks to see if previous stage is present
 			Set holdload to false.
+			//Print holdload.
 		}
 	}
 	wait 0.1.

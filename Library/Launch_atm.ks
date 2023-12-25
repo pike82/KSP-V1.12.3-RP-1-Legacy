@@ -114,16 +114,18 @@ Function ff_GravityTurnAoA{
 
 /////////////////////////////////////////////////////////////////////////////////////
 Function ff_CoastH{ // intended to keep a low AoA when coasting until a set altitude
-	Parameter targetAltitude, intAzimith is 90, hold is false.
+	Parameter targetAltitude, intAzimith is 90, hold is false, rstate is true.
 	Print "Coasting Phase".
 	LOCK Throttle to 0.
 	if hold{
 		LOCK STEERING TO ship:facing:vector. //maintain current alignment
 	}else{
-		lock pitch to 90 - VANG(SHIP:UP:VECTOR, SHIP:VELOCITY:ORBIT).
+		lock pitch to 90 - VANG(SHIP:UP:VECTOR, SHIP:VELOCITY:SURFACE).//SHIP:VELOCITY:ORBIT
 		LOCK STEERING TO heading(intAzimith, pitch).
 	}
-	RCS on.
+	If rstate{
+		RCS on.
+	}
 	UNTIL SHIP:Apoapsis > targetAltitude {
 		ff_FAIRING().
 	}
@@ -132,16 +134,18 @@ Function ff_CoastH{ // intended to keep a low AoA when coasting until a set alti
 /////////////////////////////////////////////////////////////////////////////////////
 
 Function ff_CoastT{ // // intended to keep a low AoA when coasting until a set time from AP
-	Parameter targetETA is 30, intAzimith is 90, hold is false.
+	Parameter targetETA is 30, intAzimith is 90, hold is false, rstate is true.
 	Print "Coasting Phase".
 	LOCK Throttle to 0.
 	if hold{
 		LOCK STEERING TO ship:facing:vector. //maintain current alignment
 	}else{
-		lock pitch to 90 - VANG(SHIP:UP:VECTOR, SHIP:VELOCITY:ORBIT).
+		lock pitch to 90 - VANG(SHIP:UP:VECTOR, SHIP:VELOCITY:SURFACE).//SHIP:VELOCITY:ORBIT
 		LOCK STEERING TO heading(intAzimith, pitch).
 	}
-	RCS on.
+	If rstate{
+		RCS on.
+	}
 	UNTIL ETA:APOAPSIS < targetETA {
 		ff_FAIRING().
 	}
@@ -551,9 +555,11 @@ function ff_Orbit_Steer{
 		// Print "T3:" + T3. //DEBUG
 		// Print "RT3: " + rT3. //DEBUG
 		// Print "HT3: " + hT3. //DEBUG
-		//Print (HSL - delta). //DEBUG
-		//Print SteerLex["tau_lock"]. //DEBUG
+		//Print (HSL - delta) AT (0,25). //DEBUG
+		//Print HSL. //DEBUG
+		//Print SteerLex["tau_lock"] AT (0,26). //DEBUG
 		if (T3 <= (2*HSL)){
+			//Print "wait reduced" AT (0,27). //DEBUG
 			wait 0.1.//reduce computation needs until the end.
 		}else{
 			wait 0.01.

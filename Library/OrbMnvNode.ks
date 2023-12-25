@@ -22,6 +22,10 @@ parameter starttime is 0, tol is 0.1, Ullage_time is 10, n is nextnode, v is n:b
 	If Starttime = 0 {
 		Set Starttime to time:seconds + n:eta - ff_burn_time(v:mag/2).
 	}
+	//TODO for principia remove existing node and add a new one below
+	remove nextnode.
+	add n.
+	//end todo check
 	Print "locking Steering to burn vector".
 	RCS on.
 	lock steering to n:burnvector.
