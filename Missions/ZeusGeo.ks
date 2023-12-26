@@ -63,7 +63,7 @@ FOR file IN LIST(
 		wait 0.001.	
 	}
 
-Global boosterCPU is "Hawk".
+Global boosterCPU is "Hawk3".
 ff_partslist(). //standard partslist create
 
 Print "Waiting for activation".

@@ -1,8 +1,8 @@
 ship = Sprint Mk2-R
-version = 1.8.1
+version = 1.12.3
 description = 
 type = VAB
-size = 4.44111633,14.3290024,7.95744371
+size = 3.49149036,14.3290024,3.49149036
 steamPublishedFileId = 0
 persistentId = 298637588
 rot = 0,0,0,0
@@ -12,12 +12,11 @@ OverrideDefault = False,False,False,False
 OverrideActionControl = 0,0,0,0
 OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
-upgraded = ProceduralParts 2.1 Bezier Cone Upgrader // Updates ProceduralParts Bezier Shapes to Custom Settings
 PART
 {
 	part = proceduralAvionics_4293123806
 	partName = Part
-	persistentId = 1742502585
+	persistentId = 426432451
 	pos = -1.94585001,13.6767235,-0.395053744
 	attPos = 0.0214488506,-0.0992803574,-0.0368354619
 	attPos0 = -1.94585001,13.6767235,-0.395053744
@@ -60,6 +59,30 @@ PART
 		{
 			actionGroup = None
 		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+		}
 	}
 	PARTDATA
 	{
@@ -68,8 +91,6 @@ PART
 	{
 		name = ProceduralPart
 		isEnabled = True
-		tempColliderCenter = (0, 0, 0)
-		tempColliderSize = (0.299999952, 0.299999237, 0.299999952)
 		forceLegacyTextures = False
 		textureSet = GreySide
 		capTextureIndex = 1
@@ -144,11 +165,11 @@ PART
 		name = ProceduralShapeBezierCone
 		isEnabled = False
 		selectedShape = Round1
+		shapePoints = (0.400000006, 0.00100000005, 1, 0.600000024)
 		topDiameter = 0.800000012
 		bottomDiameter = 1
 		length = 0.5
 		stagingEnabled = True
-		shapePoints = 0.400000006,0.00100000005,1,0.600000024
 		EVENTS
 		{
 		}
@@ -166,6 +187,63 @@ PART
 		cornerCount = 8
 		diameter = 1
 		length = 0.75
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ProceduralShapeHollowCylinder
+		isEnabled = False
+		innerDiameter = 0.5
+		outerDiameter = 1
+		length = 0.75
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ProceduralShapeHollowCone
+		isEnabled = False
+		topInnerDiameter = 0.5
+		topOuterDiameter = 1
+		bottomInnerDiameter = 0.5
+		bottomOuterDiameter = 1.25
+		length = 0.5
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ProceduralShapeHollowPill
+		isEnabled = False
+		innerDiameter = 0.5
+		outerDiameter = 1
+		length = 0.75
+		fillet = 0.25
 		stagingEnabled = True
 		EVENTS
 		{
@@ -282,40 +360,6 @@ PART
 		}
 		ACTIONS
 		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleFuelTanks
-		isEnabled = True
-		type = SM-I
-		utilization = 2
-		mass = 0.000489911472
-		_numberOfAddedMLILayers = 0
-		stagingEnabled = True
-		volume = 0.062799999999999995
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		TANK
-		{
-			name = ElectricCharge
-			note = 
-			utilization = 1000
-			mass = 0.00449999981
-			cost = 12
-			loss_rate = 0
-			temperature = 300
-			fillable = True
-			techRequired = 
-			amount = 59.999999999999957
-			maxAmount = 59.999999999999957
 		}
 		UPGRADESAPPLIED
 		{
@@ -937,6 +981,15 @@ PART
 			MechJebModuleCustomInfoWindow
 			{
 			}
+			MechJebModuleCustomInfoWindow
+			{
+			}
+			MechJebModuleCustomInfoWindow
+			{
+			}
+			MechJebModuleCustomInfoWindow
+			{
+			}
 			MechJebModuleWarpController
 			{
 				unlockParts = 
@@ -1062,6 +1115,96 @@ PART
 	}
 	MODULE
 	{
+		name = kOSProcessor
+		isEnabled = True
+		bootFile = /boot/SoundingBoot.ks
+		diskSpace = 500
+		baseDiskSpace = 500
+		baseModuleMass = 0
+		additionalCost = 0
+		MaxPartId = 100
+		RequiredPower = 0.00999999978
+		stagingEnabled = True
+		activated = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			Activate
+			{
+				actionGroup = None
+			}
+			Deactivate
+			{
+				actionGroup = None
+			}
+			Toggle
+			{
+				actionGroup = None
+			}
+			TogglePower
+			{
+				actionGroup = None
+			}
+			StartSuppressAutopilot
+			{
+				actionGroup = None
+			}
+			StopSuppressAutopilot
+			{
+				actionGroup = None
+			}
+			ToggleSuppressAutopilot
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleFuelTanks
+		isEnabled = True
+		type = SM-I
+		utilization = 2
+		volume = 0.062799999999999995
+		mass = 0.000489911472
+		_numberOfAddedMLILayers = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		TANK
+		{
+			name = ElectricCharge
+			note = 
+			utilization = 1000
+			mass = 0.00449999981
+			cost = 12
+			loss_rate = 0
+			wallThickness = 0.10000000000000001
+			wallConduction = 205
+			insulationThickness = 0
+			insulationConduction = 1
+			isDewar = False
+			temperature = 300
+			fillable = True
+			techRequired = 
+			amount = 59.999999999999957
+			maxAmount = 59.999999999999957
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
 		name = HardDrive
 		isEnabled = True
 		hdId = 0
@@ -1141,57 +1284,6 @@ PART
 		ACTIONS
 		{
 			BoomAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = kOSProcessor
-		isEnabled = True
-		bootFile = /boot/SoundingBoot.ks
-		diskSpace = 500
-		baseDiskSpace = 500
-		baseModuleMass = 0
-		additionalCost = 0
-		MaxPartId = 100
-		RequiredPower = 0.00999999978
-		stagingEnabled = True
-		activated = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			Activate
-			{
-				actionGroup = None
-			}
-			Deactivate
-			{
-				actionGroup = None
-			}
-			Toggle
-			{
-				actionGroup = None
-			}
-			TogglePower
-			{
-				actionGroup = None
-			}
-			StartSuppressAutopilot
-			{
-				actionGroup = None
-			}
-			StopSuppressAutopilot
-			{
-				actionGroup = None
-			}
-			ToggleSuppressAutopilot
 			{
 				actionGroup = None
 			}
@@ -2050,24 +2142,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleShowInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -2116,7 +2190,7 @@ PART
 {
 	part = proceduralNoseCone_4292483012
 	partName = Part
-	persistentId = 1511727838
+	persistentId = 2370076856
 	pos = -1.94585001,14.4267235,-0.395053744
 	attPos = 0,0,0
 	attPos0 = 0,0.75,0
@@ -2157,6 +2231,32 @@ PART
 		{
 			actionGroup = None
 		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
+		}
 	}
 	PARTDATA
 	{
@@ -2165,10 +2265,8 @@ PART
 	{
 		name = ProceduralPart
 		isEnabled = True
-		tempColliderCenter = (0, 0, 0)
-		tempColliderSize = (0.299999952, 1.20000076, 0.299999952)
 		forceLegacyTextures = True
-		textureSet = SaturnSingleTank2
+		textureSet = Original
 		capTextureIndex = 0
 		shapeName = Smooth Cone
 		moduleCost = 0.018724883
@@ -2206,11 +2304,11 @@ PART
 		name = ProceduralShapeBezierCone
 		isEnabled = True
 		selectedShape = Peaked1
+		shapePoints = (0.400000006, 0.200000003, 0.800000012, 0.600000024)
 		topDiameter = 0
 		bottomDiameter = 0.300000012
 		length = 1.20000005
 		stagingEnabled = True
-		shapePoints = 0.400000006,0.200000003,0.800000012,0.600000024
 		EVENTS
 		{
 		}
@@ -2349,24 +2447,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleShowInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -2385,7 +2465,7 @@ PART
 {
 	part = RC.stack_4293002004
 	partName = Part
-	persistentId = 3374967251
+	persistentId = 180192862
 	pos = -1.94585001,13.4872675,-0.395053744
 	attPos = 0,0,0
 	attPos0 = 0,-0.189455986,0
@@ -2426,6 +2506,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -2604,69 +2710,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTransform2Value
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTransform2Value
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTransform2Value
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = GeometryPartModule
 		isEnabled = True
 		stagingEnabled = True
@@ -2746,7 +2789,7 @@ PART
 {
 	part = ROT-RingDecoupler_4292980102
 	partName = Part
-	persistentId = 3558639743
+	persistentId = 3284659759
 	pos = -1.94585001,13.4328117,-0.395053744
 	attPos = 0,0,0
 	attPos0 = 0,-0.0544565618,0
@@ -2788,6 +2831,32 @@ PART
 		{
 			actionGroup = None
 		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
+		}
 	}
 	PARTDATA
 	{
@@ -2798,7 +2867,9 @@ PART
 		isEnabled = True
 		currentDiameter = 0.300000012
 		currentLength = 1
-		currentVScale = 0
+		currentVScale = 1
+		currentNoseVScale = 1
+		currentMountVScale = 1
 		totalTankLength = 0.0300000012
 		largestDiameter = 0.300000012
 		currentNoseRotation = 0
@@ -2990,24 +3061,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleShowInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -3026,7 +3079,7 @@ PART
 {
 	part = ROT-GenericTank-Separate_4292982324
 	partName = Part
-	persistentId = 3973297233
+	persistentId = 650612698
 	pos = -1.94585001,11.4028111,-0.395053744
 	attPos = 0,0,0
 	attPos0 = 0,-2.03000069,0
@@ -3045,7 +3098,7 @@ PART
 	sepI = 1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 4.64182281
+	modCost = 4.57517815
 	modMass = -0.918526947
 	modSize = 0,0,0
 	link = conformaldecals-flag_4292965210
@@ -3075,71 +3128,33 @@ PART
 		{
 			actionGroup = None
 		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+		}
 	}
 	PARTDATA
 	{
-	}
-	MODULE
-	{
-		name = ModuleFuelTanks
-		isEnabled = True
-		type = Tank-Sep-Steel-HP
-		utilization = 75
-		mass = 0.08147306
-		_numberOfAddedMLILayers = 0
-		stagingEnabled = True
-		volume = 210.7062
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		TANK
-		{
-			name = IRFNA-III
-			note = 
-			utilization = 1
-			mass = 0.000159999996
-			cost = 0.00249999994
-			loss_rate = 0
-			temperature = 300
-			fillable = True
-			techRequired = 
-			amount = 111.63290220801868
-			maxAmount = 111.63290220801868
-		}
-		TANK
-		{
-			name = Aniline37
-			note = 
-			utilization = 1
-			mass = 0.000159999996
-			cost = 0.00249999994
-			loss_rate = 0
-			temperature = 300
-			fillable = True
-			techRequired = 
-			amount = 68.304074148595234
-			maxAmount = 68.304074148595234
-		}
-		TANK
-		{
-			name = Nitrogen
-			note = 
-			utilization = 200
-			mass = 0.000159999996
-			cost = 0.00249999994
-			loss_rate = 0
-			temperature = 300
-			fillable = True
-			techRequired = 
-			amount = 6153.8447286772134
-			maxAmount = 6153.8447286772134
-		}
-		UPGRADESAPPLIED
-		{
-		}
 	}
 	MODULE
 	{
@@ -3148,6 +3163,8 @@ PART
 		currentDiameter = 0.300000012
 		currentLength = 4
 		currentVScale = 0.666666627
+		currentNoseVScale = 1
+		currentMountVScale = 1
 		totalTankLength = 4.03000021
 		largestDiameter = 0.300000012
 		currentNoseRotation = 0
@@ -3329,9 +3346,13 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleToolingPTank
+		name = ModuleFuelTanks
 		isEnabled = True
-		addedCost = 0
+		type = Tank-Sep-Steel-HP
+		utilization = 75
+		volume = 210.7062
+		mass = 0.08147306
+		_numberOfAddedMLILayers = 0
 		stagingEnabled = True
 		EVENTS
 		{
@@ -3339,18 +3360,73 @@ PART
 		ACTIONS
 		{
 		}
+		TANK
+		{
+			name = IRFNA-III
+			note = 
+			utilization = 1
+			mass = 0.000159999996
+			cost = 0.00249999994
+			loss_rate = 0
+			wallThickness = 0.10000000000000001
+			wallConduction = 205
+			insulationThickness = 0
+			insulationConduction = 1
+			isDewar = False
+			temperature = 300
+			fillable = True
+			techRequired = 
+			amount = 111.63290220801868
+			maxAmount = 111.63290220801868
+		}
+		TANK
+		{
+			name = Aniline37
+			note = 
+			utilization = 1
+			mass = 0.000159999996
+			cost = 0.00249999994
+			loss_rate = 0
+			wallThickness = 0.10000000000000001
+			wallConduction = 205
+			insulationThickness = 0
+			insulationConduction = 1
+			isDewar = False
+			temperature = 300
+			fillable = True
+			techRequired = 
+			amount = 68.304074148595234
+			maxAmount = 68.304074148595234
+		}
+		TANK
+		{
+			name = Nitrogen
+			note = 
+			utilization = 200
+			mass = 0.000159999996
+			cost = 0.00249999994
+			loss_rate = 0
+			wallThickness = 0.10000000000000001
+			wallConduction = 205
+			insulationThickness = 0
+			insulationConduction = 1
+			isDewar = False
+			temperature = 300
+			fillable = True
+			techRequired = 
+			amount = 6153.8447286772134
+			maxAmount = 6153.8447286772134
+		}
 		UPGRADESAPPLIED
 		{
 		}
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
+		name = ModuleToolingPTank
 		isEnabled = True
-		dead = False
-		internalDamage = 0
+		addedCost = 0
 		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
 		EVENTS
 		{
 		}
@@ -3414,7 +3490,7 @@ PART
 {
 	part = conformaldecals-flag_4292965210
 	partName = Part
-	persistentId = 877434235
+	persistentId = 535708426
 	pos = -1.70793104,12.4436007,-0.331303567
 	attPos = 0,0,0
 	attPos0 = 0.237918973,1.0407896,0.0637501776
@@ -3455,6 +3531,36 @@ PART
 		{
 			actionGroup = None
 		}
+		AutostrutOff
+		{
+			actionGroup = None
+			active = False
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+			active = False
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+			active = False
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
+		}
 	}
 	PARTDATA
 	{
@@ -3530,24 +3636,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleShowInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -3566,7 +3654,7 @@ PART
 {
 	part = conformaldecals-flag_4292951718
 	partName = Part
-	persistentId = 3006276063
+	persistentId = 2654521613
 	pos = -2.18376875,12.4436007,-0.458803892
 	attPos = 0,0,0
 	attPos0 = -0.237918854,1.0407896,-0.0637501478
@@ -3607,6 +3695,36 @@ PART
 		{
 			actionGroup = None
 		}
+		AutostrutOff
+		{
+			actionGroup = None
+			active = False
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+			active = False
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+			active = False
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
+		}
 	}
 	PARTDATA
 	{
@@ -3682,24 +3800,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleShowInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -3718,7 +3818,7 @@ PART
 {
 	part = RO-B9ProcWing-Early_4293025892
 	partName = Part
-	persistentId = 610931953
+	persistentId = 315529906
 	pos = -2.00714064,9.65456104,-0.263136983
 	attPos = 0.0381906033,0.0586872101,0.0551114231
 	attPos0 = -0.0612905025,-1.74825001,0.131916761
@@ -3737,9 +3837,9 @@ PART
 	sepI = 1
 	attm = 1
 	sameVesselCollision = False
-	modCost = 4.72000029E-05
+	modCost = 0
 	modMass = 0.00093499996
-	modSize = -3.79999995,-3.0999999,-0.155000001
+	modSize = 0,0,0
 	sym = RO-B9ProcWing-Early_4293282478
 	sym = RO-B9ProcWing-Early_4293282350
 	srfN = srfAttach,ROT-GenericTank-Separate_4292982324,SC-TANK-A-1-0-Collider,0|0|0,-1|0|0,0|0|0
@@ -3759,6 +3859,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -3805,9 +3931,12 @@ PART
 		sharedColorELBrightness = 0.600000024
 		sharedSweptAngleFront = 90
 		sharedSweptAngleBack = 90
+		sharedArmorRatio = 0
+		aeroUIMass = 0
+		stockLiftCoefficient = 0
 		aeroStatMeanAerodynamicChord = 0.94499999284744263
 		aeroStatSemispan = 0.20000000298023224
-		aeroStatMidChordSweep = 66.037510145242777
+		aeroStatMidChordSweep = 66.037510916085736
 		aeroStatTaperRatio = 0.35483871794722799
 		fuelSelectedTankSetup = 0
 		stagingEnabled = True
@@ -3827,6 +3956,90 @@ PART
 		name = FARWingAerodynamicModel
 		isEnabled = True
 		massMultiplier = 0.100000001
+		massOverride = -3.40282347E+38
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = SSTURecolorGUI
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-trailing-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-leading-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
 		stagingEnabled = True
 		EVENTS
 		{
@@ -3890,28 +4103,10 @@ PART
 		isEnabled = True
 		type = Structural
 		utilization = 1
-		mass = 0.000944999978
+		volume = 0.023599999999999999
+		mass = 0
 		_numberOfAddedMLILayers = 0
 		stagingEnabled = True
-		volume = 0.023599999999999999
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
 		EVENTS
 		{
 		}
@@ -3942,7 +4137,7 @@ PART
 {
 	part = RO-B9ProcWing-Early_4293282478
 	partName = Part
-	persistentId = 1260115045
+	persistentId = 2399924048
 	pos = -1.80096161,9.65456104,-0.407932997
 	attPos = 0.0381906033,0.0586872101,0.0551114231
 	attPos0 = 0.144888401,-1.74825001,-0.0128792524
@@ -3961,9 +4156,9 @@ PART
 	sepI = 1
 	attm = 1
 	sameVesselCollision = False
-	modCost = 4.72000029E-05
+	modCost = 0
 	modMass = 0.00093499996
-	modSize = -3.79999995,-3.0999999,-0.155000001
+	modSize = 0,0,0
 	sym = RO-B9ProcWing-Early_4293282350
 	sym = RO-B9ProcWing-Early_4293025892
 	srfN = srfAttach,ROT-GenericTank-Separate_4292982324,SC-TANK-A-1-0-Collider,0|0|0,-1|0|0,0|0|0
@@ -3983,6 +4178,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -4029,9 +4250,12 @@ PART
 		sharedColorELBrightness = 0.600000024
 		sharedSweptAngleFront = 90
 		sharedSweptAngleBack = 90
+		sharedArmorRatio = 0
+		aeroUIMass = 0
+		stockLiftCoefficient = 0
 		aeroStatMeanAerodynamicChord = 0.94499999284744263
 		aeroStatSemispan = 0.20000000298023224
-		aeroStatMidChordSweep = 66.037510145242777
+		aeroStatMidChordSweep = 66.037510916085736
 		aeroStatTaperRatio = 0.35483871794722799
 		fuelSelectedTankSetup = 0
 		stagingEnabled = True
@@ -4051,6 +4275,90 @@ PART
 		name = FARWingAerodynamicModel
 		isEnabled = True
 		massMultiplier = 0.100000001
+		massOverride = -3.40282347E+38
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = SSTURecolorGUI
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-trailing-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-leading-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
 		stagingEnabled = True
 		EVENTS
 		{
@@ -4114,28 +4422,10 @@ PART
 		isEnabled = True
 		type = Structural
 		utilization = 1
-		mass = 0.000944999978
+		volume = 0.023599999999999999
+		mass = 0
 		_numberOfAddedMLILayers = 0
 		stagingEnabled = True
-		volume = 0.023599999999999999
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
 		EVENTS
 		{
 		}
@@ -4166,7 +4456,7 @@ PART
 {
 	part = RO-B9ProcWing-Early_4293282350
 	partName = Part
-	persistentId = 78895305
+	persistentId = 3180286680
 	pos = -2.02944803,9.65456104,-0.514091253
 	attPos = 0.0381906033,0.0586872101,0.0551114231
 	attPos0 = -0.0835981369,-1.74825001,-0.119037479
@@ -4185,9 +4475,9 @@ PART
 	sepI = 1
 	attm = 1
 	sameVesselCollision = False
-	modCost = 4.72000029E-05
+	modCost = 0
 	modMass = 0.00093499996
-	modSize = -3.79999995,-3.0999999,-0.155000001
+	modSize = 0,0,0
 	sym = RO-B9ProcWing-Early_4293025892
 	sym = RO-B9ProcWing-Early_4293282478
 	srfN = srfAttach,ROT-GenericTank-Separate_4292982324,SC-TANK-A-1-0-Collider,0|0|0,-1|0|0,0|0|0
@@ -4207,6 +4497,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -4253,9 +4569,12 @@ PART
 		sharedColorELBrightness = 0.600000024
 		sharedSweptAngleFront = 90
 		sharedSweptAngleBack = 90
+		sharedArmorRatio = 0
+		aeroUIMass = 0
+		stockLiftCoefficient = 0
 		aeroStatMeanAerodynamicChord = 0.94499999284744263
 		aeroStatSemispan = 0.20000000298023224
-		aeroStatMidChordSweep = 66.037510145242777
+		aeroStatMidChordSweep = 66.037510916085736
 		aeroStatTaperRatio = 0.35483871794722799
 		fuelSelectedTankSetup = 0
 		stagingEnabled = True
@@ -4275,6 +4594,90 @@ PART
 		name = FARWingAerodynamicModel
 		isEnabled = True
 		massMultiplier = 0.100000001
+		massOverride = -3.40282347E+38
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = SSTURecolorGUI
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-trailing-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-leading-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
 		stagingEnabled = True
 		EVENTS
 		{
@@ -4338,28 +4741,10 @@ PART
 		isEnabled = True
 		type = Structural
 		utilization = 1
-		mass = 0.000944999978
+		volume = 0.023599999999999999
+		mass = 0
 		_numberOfAddedMLILayers = 0
 		stagingEnabled = True
-		volume = 0.023599999999999999
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
 		EVENTS
 		{
 		}
@@ -4390,7 +4775,7 @@ PART
 {
 	part = conformaldecals-text_4292953684
 	partName = Part
-	persistentId = 1323955488
+	persistentId = 2002445367
 	pos = -2.19172716,11.9346371,-0.395053446
 	attPos = 0,0,0
 	attPos0 = -0.245877266,0.531826019,2.98023224E-07
@@ -4429,6 +4814,36 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+			active = False
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+			active = False
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+			active = False
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -4514,24 +4929,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleShowInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -4550,7 +4947,7 @@ PART
 {
 	part = ROE-Aerobee_4292709342
 	partName = Part
-	persistentId = 1937579319
+	persistentId = 1671539251
 	pos = -1.94585001,9.21281147,-0.395053744
 	attPos = 0,0,0
 	attPos0 = 0,-2.18999958,0
@@ -4591,6 +4988,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -4644,6 +5067,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -4654,6 +5078,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -4749,6 +5174,8 @@ PART
 	{
 		name = ModuleEngineConfigs
 		isEnabled = True
+		activePatchName = 
+		dynamicPatchApplied = False
 		configuration = XASR-1
 		configurationDisplay = XASR-1
 		techLevel = -1
@@ -4816,9 +5243,9 @@ PART
 		isEnabled = True
 		operatingTime = 0
 		lastMET = 0
-		currentFlightData = 2000
-		initialFlightData = 4000
-		missionStartTime = 15206384.342387006
+		currentFlightData = 700.172424
+		initialFlightData = 2359.49902
+		missionStartTime = 23656836.984751839
 		activeConfig = 
 		stagingEnabled = True
 		EVENTS
@@ -4968,24 +5395,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleShowInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -5004,7 +5413,7 @@ PART
 {
 	part = ROT-OpenInterstage_4291756442
 	partName = Part
-	persistentId = 1308345829
+	persistentId = 1575616938
 	pos = -1.94585001,8.87941074,-0.395053744
 	attPos = 0,0,0
 	attPos0 = 0,-0.333400726,0
@@ -5046,6 +5455,32 @@ PART
 		{
 			actionGroup = None
 		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
+		}
 	}
 	PARTDATA
 	{
@@ -5056,7 +5491,9 @@ PART
 		isEnabled = True
 		currentDiameter = 0.300000012
 		currentLength = 1
-		currentVScale = 0
+		currentVScale = 1
+		currentNoseVScale = 1
+		currentMountVScale = 1
 		totalTankLength = 0.187199995
 		largestDiameter = 0.300000012
 		currentNoseRotation = 0
@@ -5248,24 +5685,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleShowInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -5284,7 +5703,7 @@ PART
 {
 	part = TinyTim_4291751446
 	partName = Part
-	persistentId = 4071448569
+	persistentId = 2237147960
 	pos = -1.94585001,6.90781021,-0.395053744
 	attPos = 0,0,0
 	attPos0 = 0,-1.97160053,0
@@ -5329,6 +5748,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -5382,6 +5827,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -5392,6 +5838,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -5570,10 +6017,10 @@ PART
 		isEnabled = True
 		type = NGNC
 		utilization = 86
-		mass = 0.181437001
+		volume = 41.390300000000003
+		mass = 0
 		_numberOfAddedMLILayers = 0
 		stagingEnabled = True
-		volume = 41.390300000000003
 		EVENTS
 		{
 		}
@@ -5588,6 +6035,11 @@ PART
 			mass = 0
 			cost = 0.00249999994
 			loss_rate = 0
+			wallThickness = 0.10000000000000001
+			wallConduction = 205
+			insulationThickness = 0
+			insulationConduction = 1
+			isDewar = False
 			temperature = 300
 			fillable = True
 			techRequired = 
@@ -5602,6 +6054,8 @@ PART
 	{
 		name = ModuleEngineConfigs
 		isEnabled = True
+		activePatchName = 
+		dynamicPatchApplied = False
 		configuration = 30Klbf
 		configurationDisplay = 30Klbf
 		techLevel = -1
@@ -5654,9 +6108,9 @@ PART
 		isEnabled = True
 		operatingTime = 0
 		lastMET = 0
-		currentFlightData = 9999.98828
-		initialFlightData = 9999.98828
-		missionStartTime = 15206384.342387006
+		currentFlightData = 1052.15698
+		initialFlightData = 1052.15698
+		missionStartTime = 23656836.984751839
 		activeConfig = 
 		stagingEnabled = True
 		EVENTS
@@ -5774,24 +6228,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleShowInfo
 		isEnabled = True
 		stagingEnabled = True
@@ -5821,7 +6257,7 @@ PART
 {
 	part = RO-B9ProcWing-Early_4293199052
 	partName = Part
-	persistentId = 2959236256
+	persistentId = 3151023126
 	pos = -1.79439008,7.3170042,-0.3631818
 	attPos = 7.4505806E-09,-0.277190208,1.49011612E-08
 	attPos0 = 0.151459932,0.409193993,0.0318719447
@@ -5840,9 +6276,9 @@ PART
 	sepI = 2
 	attm = 1
 	sameVesselCollision = False
-	modCost = 3.00000011E-05
+	modCost = 0
 	modMass = 0.000957500073
-	modSize = -3.70000005,-3.70000005,-0.135000005
+	modSize = 0,0,0
 	sym = RO-B9ProcWing-Early_4293031666
 	sym = RO-B9ProcWing-Early_4293031526
 	sym = RO-B9ProcWing-Early_4293031386
@@ -5863,6 +6299,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -5909,9 +6371,12 @@ PART
 		sharedColorELBrightness = 0.600000024
 		sharedSweptAngleFront = 90
 		sharedSweptAngleBack = 90
+		sharedArmorRatio = 0
+		aeroUIMass = 0
+		stockLiftCoefficient = 0
 		aeroStatMeanAerodynamicChord = 0.64500001072883606
 		aeroStatSemispan = 0.30000001192092896
-		aeroStatMidChordSweep = 45.000017075467156
+		aeroStatMidChordSweep = 45.000017600743568
 		aeroStatTaperRatio = 0.62264150236090621
 		fuelSelectedTankSetup = 0
 		stagingEnabled = True
@@ -5931,6 +6396,90 @@ PART
 		name = FARWingAerodynamicModel
 		isEnabled = True
 		massMultiplier = 0.100000001
+		massOverride = -3.40282347E+38
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = SSTURecolorGUI
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-trailing-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-leading-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
 		stagingEnabled = True
 		EVENTS
 		{
@@ -5994,28 +6543,10 @@ PART
 		isEnabled = True
 		type = Structural
 		utilization = 1
-		mass = 0.000967500091
+		volume = 0.014999999999999999
+		mass = 0
 		_numberOfAddedMLILayers = 0
 		stagingEnabled = True
-		volume = 0.014999999999999999
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
 		EVENTS
 		{
 		}
@@ -6046,7 +6577,7 @@ PART
 {
 	part = RO-B9ProcWing-Early_4293031666
 	partName = Part
-	persistentId = 3884913024
+	persistentId = 3533279458
 	pos = -1.91397798,7.3170042,-0.546513677
 	attPos = 7.4505806E-09,-0.277190208,1.49011612E-08
 	attPos0 = 0.0318720341,0.409193993,-0.151459932
@@ -6065,9 +6596,9 @@ PART
 	sepI = 2
 	attm = 1
 	sameVesselCollision = False
-	modCost = 3.00000011E-05
+	modCost = 0
 	modMass = 0.000957500073
-	modSize = -3.70000005,-3.70000005,-0.135000005
+	modSize = 0,0,0
 	sym = RO-B9ProcWing-Early_4293031526
 	sym = RO-B9ProcWing-Early_4293031386
 	sym = RO-B9ProcWing-Early_4293199052
@@ -6088,6 +6619,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -6134,9 +6691,12 @@ PART
 		sharedColorELBrightness = 0.600000024
 		sharedSweptAngleFront = 90
 		sharedSweptAngleBack = 90
+		sharedArmorRatio = 0
+		aeroUIMass = 0
+		stockLiftCoefficient = 0
 		aeroStatMeanAerodynamicChord = 0.64500001072883606
 		aeroStatSemispan = 0.30000001192092896
-		aeroStatMidChordSweep = 45.000017075467156
+		aeroStatMidChordSweep = 45.000017600743568
 		aeroStatTaperRatio = 0.62264150236090621
 		fuelSelectedTankSetup = 0
 		stagingEnabled = True
@@ -6156,6 +6716,90 @@ PART
 		name = FARWingAerodynamicModel
 		isEnabled = True
 		massMultiplier = 0.100000001
+		massOverride = -3.40282347E+38
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = SSTURecolorGUI
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-trailing-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-leading-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
 		stagingEnabled = True
 		EVENTS
 		{
@@ -6219,28 +6863,10 @@ PART
 		isEnabled = True
 		type = Structural
 		utilization = 1
-		mass = 0.000967500091
+		volume = 0.014999999999999999
+		mass = 0
 		_numberOfAddedMLILayers = 0
 		stagingEnabled = True
-		volume = 0.014999999999999999
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
 		EVENTS
 		{
 		}
@@ -6271,7 +6897,7 @@ PART
 {
 	part = RO-B9ProcWing-Early_4293031526
 	partName = Part
-	persistentId = 1101172905
+	persistentId = 3925673257
 	pos = -2.09731007,7.3170042,-0.426925659
 	attPos = 7.4505806E-09,-0.277190208,1.49011612E-08
 	attPos0 = -0.151459932,0.409193993,-0.0318719149
@@ -6290,9 +6916,9 @@ PART
 	sepI = 2
 	attm = 1
 	sameVesselCollision = False
-	modCost = 3.00000011E-05
+	modCost = 0
 	modMass = 0.000957500073
-	modSize = -3.70000005,-3.70000005,-0.135000005
+	modSize = 0,0,0
 	sym = RO-B9ProcWing-Early_4293031386
 	sym = RO-B9ProcWing-Early_4293199052
 	sym = RO-B9ProcWing-Early_4293031666
@@ -6313,6 +6939,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -6359,9 +7011,12 @@ PART
 		sharedColorELBrightness = 0.600000024
 		sharedSweptAngleFront = 90
 		sharedSweptAngleBack = 90
+		sharedArmorRatio = 0
+		aeroUIMass = 0
+		stockLiftCoefficient = 0
 		aeroStatMeanAerodynamicChord = 0.64500001072883606
 		aeroStatSemispan = 0.30000001192092896
-		aeroStatMidChordSweep = 45.000017075467156
+		aeroStatMidChordSweep = 45.000017600743568
 		aeroStatTaperRatio = 0.62264150236090621
 		fuelSelectedTankSetup = 0
 		stagingEnabled = True
@@ -6381,6 +7036,90 @@ PART
 		name = FARWingAerodynamicModel
 		isEnabled = True
 		massMultiplier = 0.100000001
+		massOverride = -3.40282347E+38
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = SSTURecolorGUI
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-trailing-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-leading-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
 		stagingEnabled = True
 		EVENTS
 		{
@@ -6444,28 +7183,10 @@ PART
 		isEnabled = True
 		type = Structural
 		utilization = 1
-		mass = 0.000967500091
+		volume = 0.014999999999999999
+		mass = 0
 		_numberOfAddedMLILayers = 0
 		stagingEnabled = True
-		volume = 0.014999999999999999
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
 		EVENTS
 		{
 		}
@@ -6496,7 +7217,7 @@ PART
 {
 	part = RO-B9ProcWing-Early_4293031386
 	partName = Part
-	persistentId = 11599366
+	persistentId = 3025483199
 	pos = -1.97772205,7.3170042,-0.243593812
 	attPos = 7.4505806E-09,-0.277190208,1.49011612E-08
 	attPos0 = -0.0318720341,0.409193993,0.151459932
@@ -6515,9 +7236,9 @@ PART
 	sepI = 2
 	attm = 1
 	sameVesselCollision = False
-	modCost = 3.00000011E-05
+	modCost = 0
 	modMass = 0.000957500073
-	modSize = -3.70000005,-3.70000005,-0.135000005
+	modSize = 0,0,0
 	sym = RO-B9ProcWing-Early_4293199052
 	sym = RO-B9ProcWing-Early_4293031666
 	sym = RO-B9ProcWing-Early_4293031526
@@ -6538,6 +7259,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -6584,9 +7331,12 @@ PART
 		sharedColorELBrightness = 0.600000024
 		sharedSweptAngleFront = 90
 		sharedSweptAngleBack = 90
+		sharedArmorRatio = 0
+		aeroUIMass = 0
+		stockLiftCoefficient = 0
 		aeroStatMeanAerodynamicChord = 0.64500001072883606
 		aeroStatSemispan = 0.30000001192092896
-		aeroStatMidChordSweep = 45.000017075467156
+		aeroStatMidChordSweep = 45.000017600743568
 		aeroStatTaperRatio = 0.62264150236090621
 		fuelSelectedTankSetup = 0
 		stagingEnabled = True
@@ -6606,6 +7356,90 @@ PART
 		name = FARWingAerodynamicModel
 		isEnabled = True
 		massMultiplier = 0.100000001
+		massOverride = -3.40282347E+38
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = SSTURecolorGUI
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = Smooth-Metal-Solid
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-trailing-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = KSPTextureSwitch
+		isEnabled = True
+		currentTextureSet = B9PWings-edge-leading-metal
+		persistentData = 0.7176471,0.7176471,0.7176471,0.6901961,1,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1;0.9254902,0.9254902,0.9254902,0.1254902,0,1
 		stagingEnabled = True
 		EVENTS
 		{
@@ -6669,28 +7503,10 @@ PART
 		isEnabled = True
 		type = Structural
 		utilization = 1
-		mass = 0.000967500091
+		volume = 0.014999999999999999
+		mass = 0
 		_numberOfAddedMLILayers = 0
 		stagingEnabled = True
-		volume = 0.014999999999999999
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
 		EVENTS
 		{
 		}
@@ -6721,7 +7537,7 @@ PART
 {
 	part = AM.MLP.MilkstoolLaunchStand1_4291786906
 	partName = Part
-	persistentId = 969720145
+	persistentId = 979725024
 	pos = -1.94585001,0.345450401,-0.395053744
 	attPos = 0,-0.237639427,0
 	attPos0 = 0,-6.56235981,0
@@ -6769,6 +7585,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -6956,24 +7798,6 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
 		name = ModuleB9PartInfo
 		isEnabled = False
 		stagingEnabled = True
@@ -7056,7 +7880,7 @@ PART
 {
 	part = AM.MLP.LaunchRailMini_4291707042
 	partName = Part
-	persistentId = 260538732
+	persistentId = 2922520183
 	pos = -1.94584954,5.14545059,-0.395053744
 	attPos = 2.89799953,5.08174992,0
 	attPos0 = -2.898,-0.281749725,0
@@ -7078,6 +7902,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
+	attN = top,Null_0_0|2.77725005|0_0|1.61000001|0_0|2.77725005|0_0|1.61000001|0
 	attN = bottom,AM.MLP.MilkstoolLaunchStand1_4291786906_0|-0.764750004|0_0|-1.61000001|0_0|-0.764750004|0_0|-1.61000001|0
 	EVENTS
 	{
@@ -7095,6 +7920,32 @@ PART
 		RemoveSameVesselInteraction
 		{
 			actionGroup = None
+		}
+		AutostrutOff
+		{
+			actionGroup = None
+		}
+		AutostrutRoot
+		{
+			actionGroup = None
+		}
+		AutostrutHeaviest
+		{
+			actionGroup = None
+		}
+		AutostrutGrandparent
+		{
+			actionGroup = None
+		}
+		ResourcesEnableFlow
+		{
+			actionGroup = None
+			active = False
+		}
+		ResourcesDisableFlow
+		{
+			actionGroup = None
+			active = False
 		}
 	}
 	PARTDATA
@@ -7178,6 +8029,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -7216,6 +8068,7 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -7254,11 +8107,33 @@ PART
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisSpeedMultiplier = 0
 				axisInverted = None
 				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleDecouple
+		isEnabled = True
+		ejectionForcePercent = 100
+		isDecoupled = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DecoupleAction
+			{
+				actionGroup = None
 			}
 		}
 		UPGRADESAPPLIED
@@ -7401,24 +8276,6 @@ PART
 			{
 				actionGroup = None
 			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleAeroReentry
-		isEnabled = True
-		dead = False
-		internalDamage = 0
-		stagingEnabled = True
-		damageCube = 0, 0, 0, 0, 0, 0
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
 		}
 		UPGRADESAPPLIED
 		{

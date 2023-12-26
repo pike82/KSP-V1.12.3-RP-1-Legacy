@@ -111,12 +111,12 @@ if runMode = 1.1 {
 ///Final and abort runmode
 if runMode = 10.1 { 
 	Print "Run mode is:" + runMode.
-	until alt:radar < 10000{ // deploy drogue at correct alt
+	until alt:radar < 7000{ // deploy drogue at correct alt
 		Wait 0.5.
 	}
 	//Drogue chute deploy
 	AG2 on.
-	until alt:radar < 2500{ // deploy main at correct alt
+	until alt:radar < 2500{ // deploy main at correct alt and cut away drogue and nose cone 
 		Wait 0.5.
 	}
 	///use to main chute

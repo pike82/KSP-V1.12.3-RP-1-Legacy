@@ -19,17 +19,17 @@ local box_azi is wndw:addhlayout().
   	set azivalue:style:height to 18.
 local box_pitch is wndw:addhlayout().
   	local pitch_label is box_pitch:addlabel("Start Pitch").
-  	local pitchvalue is box_pitch:ADDTEXTFIELD("86.5").
+  	local pitchvalue is box_pitch:ADDTEXTFIELD("86").
   	set pitchvalue:style:width to 100.
   	set pitchvalue:style:height to 18.
 local box_ap is wndw:addhlayout().
   	local ap_label is box_ap:addlabel("AP (km)").
-  	local apvalue is box_ap:ADDTEXTFIELD("220").
+  	local apvalue is box_ap:ADDTEXTFIELD("200").
   	set apvalue:style:width to 100.
   	set apvalue:style:height to 18.
 local box_pe is wndw:addhlayout().
   	local pe_label is box_pe:addlabel("PE (km)").
-  	local pevalue is box_pe:ADDTEXTFIELD("220").
+  	local pevalue is box_pe:ADDTEXTFIELD("200").
   	set pevalue:style:width to 100.
   	set pevalue:style:height to 18.
 local somebutton is wndw:addbutton("Confirm").

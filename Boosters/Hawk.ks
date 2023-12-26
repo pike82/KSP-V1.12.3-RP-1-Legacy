@@ -85,7 +85,7 @@ if runMode = 0.1 {
 if runMode = 1.1 { 
 	Print "Run mode is:" + runMode.
 	Wait until Stage:Ready.
-	ff_GravityTurnAoA(gv_intAzimith, "RCS", 0.0, 0.995, 0).
+	ff_GravityTurnAoA(gv_intAzimith, "RCS", 0.0, 0.995, 1).
 	set runMode to 2.1.
 	Print "MECO".
 }	
